@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brownie-davasi-2026.netlify.app/">
+<meta property="og:title" content="Resmî Tebligat · Brownie Davası">
+<meta property="og:description" content="Adınıza bir tebligat çıkarılmıştır. Açtığınız anda tebliğ edilmiş sayılırsınız.">
+<meta property="og:image" content="https://brownie-davasi-2026.netlify.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b2536">
+<style>body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Resmî Tebligat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    color-scheme: light;
+    --desk:#243044; --desk-2:#1b2536;
+    --paper:#FAF8F3; --ink:#1D2433; --muted:#5B6475; --rule:#DCD6C8;
+    --seal:#B3261E; --seal-soft:#F3DEDA; --brown:#6B4226; --brown-soft:#EFE4DA;
+    --display:"DM Serif Display", Georgia, "Times New Roman", serif;
+    --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  html,body{height:100%}
+  body{
+    background:radial-gradient(120% 80% at 50% 0%, var(--desk) 0%, var(--desk-2) 100%) fixed, var(--desk-2);
+    color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.55;
+    padding-inline:16px; padding-block:24px 40px; overflow-x:hidden;
+  }
+  button{font:inherit; cursor:pointer}
+  button:focus-visible{outline:3px solid #E7B84A; outline-offset:3px}
+  [hidden]{display:none!important}
+
+  /* ---------- Zarf ---------- */
+  #zarf{min-height:calc(100% - 24px); display:grid; place-items:center; gap:24px; text-align:center}
+  .envelope{
+    position:relative; width:min(360px,100%); aspect-ratio:1.55; background:#EDE7DA; border:0; padding:0;
+    border-radius:6px; box-shadow:0 18px 40px rgba(0,0,0,.35); overflow:hidden; color:var(--ink);
+  }
+  .envelope .flap{position:absolute; inset:0 0 38% 0; background:#E3DBCB; clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top; transition:transform .6s ease; z-index:2}
+  .envelope .addr{position:absolute; left:0; right:0; bottom:14%; font-family:var(--mono); font-size:13px; letter-spacing:.02em; line-height:1.5}
+  .envelope .addr b{font-weight:500}
+  .seal{position:absolute; left:50%; top:62%; translate:-50% -50%; width:64px; height:64px; border-radius:50%;
+    background:var(--seal); color:#fff; display:grid; place-items:center; font-family:var(--display); font-size:13px; line-height:1.05;
+    box-shadow:inset 0 0 0 4px rgba(255,255,255,.18), 0 2px 6px rgba(0,0,0,.3); z-index:3; transition:opacity .3s}
+  .envelope.open .flap{transform:rotateX(180deg)}
+  .envelope.open .seal{opacity:0}
+  .zarf-note{color:#C9D0DD; font-family:var(--mono); font-size:13px; max-width:34ch}
+  .zarf-title{color:#fff; font-family:var(--display); font-size:clamp(28px,7vw,40px); line-height:1.1; margin:0}
+  .tap{color:#E7B84A; font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.45}}
+
+  /* ---------- Evrak ---------- */
+  #evrak{max-width:580px; margin-inline:auto; background:var(--paper); border-radius:4px;
+    box-shadow:0 20px 50px rgba(0,0,0,.4); padding:28px 22px 26px; position:relative}
+  .kunye{display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; font-family:var(--mono); font-size:12px;
+    color:var(--muted); border-bottom:1px solid var(--rule); padding-bottom:10px; margin-bottom:18px}
+  .kunye s{text-decoration-color:var(--seal); text-decoration-thickness:2px}
+  .kunye .nazli-on{color:var(--seal); font-weight:500; text-decoration:none}
+  .steps{display:flex; gap:6px; margin-bottom:20px}
+  .steps i{flex:1; height:3px; border-radius:2px; background:var(--rule); transition:background .3s}
+  .steps i.on{background:var(--ink)}
+  h1,h2{font-family:var(--display); font-weight:400; line-height:1.15; margin:0 0 10px; text-wrap:balance}
+  h1{font-size:clamp(28px,7vw,36px)}
+  h2{font-size:clamp(24px,6vw,30px)}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--seal); margin:0 0 6px}
+  p{margin:0 0 12px}
+  .small{font-size:14px; color:var(--muted)}
+  .scene{animation:in .45s ease both}
+  @keyframes in{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+
+  table.taraf{width:100%; border-collapse:collapse; margin:14px 0 16px; font-size:16px}
+  .taraf td{padding:8px 0; border-bottom:1px dashed var(--rule); vertical-align:top}
+  .taraf td:first-child{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); width:92px; padding-top:11px}
+  .serh{background:var(--seal-soft); border-left:3px solid var(--seal); padding:10px 12px; font-size:14.5px; font-style:italic; margin:4px 0 18px}
+
+  .btn{border:1.5px solid var(--ink); background:var(--ink); color:var(--paper); padding:12px 20px; border-radius:3px;
+    font-family:var(--mono); font-size:14px; letter-spacing:.04em}
+  .btn.ghost{background:transparent; color:var(--ink)}
+  .row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+  .actions{margin-top:22px}
+
+  /* Ön inceleme */
+  fieldset{border:0; padding:0; margin:0 0 18px}
+  legend{font-weight:600; margin-bottom:8px; padding:0}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{border:1.5px solid var(--rule); background:#fff; color:var(--ink); padding:9px 14px; border-radius:999px; font-size:15px; transition:all .15s}
+  .chip[aria-pressed="true"]{border-color:var(--brown); background:var(--brown); color:#fff}
+
+  /* Deliller */
+  .delil{border:1px solid var(--rule); background:#fff; padding:14px 16px; border-radius:3px; margin-bottom:10px; animation:in .4s ease both}
+  .delil .no{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:4px}
+  .delil.ikrar{border-color:var(--brown); background:var(--brown-soft)}
+  .delil.ikrar blockquote{font-family:var(--display); font-size:24px; line-height:1.2; margin:6px 0 8px; color:var(--brown)}
+
+  /* Soru */
+  .soru-alani{min-height:230px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:center; padding:30px 0}
+  #evet{background:var(--seal); border-color:var(--seal); transition:transform .25s cubic-bezier(.3,1.6,.5,1); position:relative; z-index:5}
+  #hayir{background:#fff; color:var(--ink); border-color:var(--ink); transition:left .18s ease, top .18s ease; white-space:nowrap}
+  #hayir.flying{position:fixed; z-index:50; box-shadow:0 6px 18px rgba(0,0,0,.25)}
+  .tutanak{font-family:var(--mono); font-size:13px; color:var(--muted); min-height:1.5em; text-align:center}
+  .kutu{border:1.5px solid var(--seal); border-radius:3px; padding:12px 14px; margin-top:12px; background:#fff; animation:in .35s ease both}
+  .kutu p{margin-bottom:8px}
+
+  /* Keşif */
+  .secenek{display:grid; gap:10px; margin-top:16px}
+  .secenek button{text-align:left; border:1.5px solid var(--rule); background:#fff; color:var(--ink); padding:14px 16px; border-radius:3px; font-size:16px; line-height:1.4}
+  .secenek button b{display:block; font-weight:600; margin-bottom:2px}
+  .secenek button span{font-size:14px; color:var(--muted)}
+  .secenek button.onerilen{border-color:var(--seal); box-shadow:0 0 0 3px var(--seal-soft)}
+  .secenek button:hover{border-color:var(--ink)}
+
+  /* Hüküm */
+  .hukum-bas{display:flex; align-items:center; gap:14px; margin-bottom:8px}
+  .tokmak{width:64px; height:64px; flex:none; border:0; background:none; padding:0}
+  .tokmak svg{width:100%; height:100%; transform-origin:70% 80%}
+  .tokmak.vur svg{animation:vur .5s ease}
+  @keyframes vur{30%{transform:rotate(-28deg)}60%{transform:rotate(6deg)}100%{transform:none}}
+  .karar{font-size:17px; line-height:1.65; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:14px 0; margin:10px 0 16px; position:relative}
+  .karar b{font-weight:600}
+  .damga{position:absolute; right:-4px; bottom:-18px; rotate:-12deg; border:3px double var(--seal); color:var(--seal);
+    font-family:var(--mono); font-weight:500; letter-spacing:.14em; font-size:13px; padding:4px 10px; background:rgba(250,248,243,.85);
+    animation:damga .5s .5s cubic-bezier(.2,1.8,.4,1) both}
+  @keyframes damga{from{opacity:0; transform:scale(2.2)}to{opacity:.92; transform:none}}
+  .samimi{font-family:var(--display); font-size:22px; line-height:1.3; color:var(--brown); margin:24px 0 4px}
+  .imza{font-family:var(--mono); font-size:13px; color:var(--muted); margin-bottom:18px}
+  .mesaj{font-family:var(--mono); font-size:13px; background:#fff; border:1px dashed var(--rule); padding:10px 12px; border-radius:3px; margin-top:10px; white-space:pre-wrap; word-break:break-word}
+  a.btn{text-decoration:none; display:inline-block}
+
+  .kvkk{margin-top:26px; padding-top:10px; border-top:1px solid var(--rule); font-family:var(--mono); font-size:11px; color:var(--muted)}
+  #sukunet{position:fixed; left:50%; top:40%; translate:-50% -50%; font-family:var(--display); font-size:54px; color:var(--seal); z-index:80; pointer-events:none; animation:in .3s ease both}
+  #confetti{position:fixed; inset:0; pointer-events:none; z-index:70}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important; transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<!-- 0. Tebligat zarfı -->
+<section id="zarf">
+  <div>
+    <p class="zarf-note" style="margin-inline:auto">Adınıza bir tebligat çıkarılmıştır.</p>
+    <h1 class="zarf-title">Resmî Tebligat</h1>
+  </div>
+  <button class="envelope" id="zarfBtn" aria-label="Tebligatı aç">
+    <span class="flap"></span>
+    <span class="seal">TATLI<br>HUKUK</span>
+    <span class="addr">Muhatap: <b>Fatma</b> <s>(Nazlı)</s><br>Gizlidir · Elden teslim</span>
+  </button>
+  <div>
+    <p class="tap">Açmak için dokunun</p>
+    <p class="zarf-note" style="margin:8px auto 0">Bu sayfayı açtığınız anda tebliğ edilmiş sayılırsınız.</p>
+  </div>
+</section>
+
+<!-- Evrak -->
+<main id="evrak" hidden>
+  <div class="kunye">
+    <span>TATLI HUKUK MAHKEMESİ · Brownie Davası · Esas No: 2026/1</span>
+    <span>Davalı: Fatma <s id="nz">(Nazlı)</s></span>
+  </div>
+  <div class="steps" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <!-- 1. Dosya -->
+  <section class="scene" data-step="0">
+    <p class="eyebrow">Duruşma zaptı</p>
+    <h1>Bir fincan kahve ve bir tepsi brownie hakkında</h1>
+    <table class="taraf">
+      <tr><td>Davacı</td><td>Yunuscan</td></tr>
+      <tr><td>Davalı</td><td>Fatma <s>(Nazlı)</s></td></tr>
+      <tr><td>Dava</td><td>Brownie davası: brownie'nin nerede ve kiminle yeneceğinin tespiti</td></tr>
+      <tr><td>Değer</td><td>Bir fincan kahve, bir tepsi brownie</td></tr>
+    </table>
+    <p class="serh">Şerh: Davalının numara verirken ileri sürdüğü “Nazlı olarak kaydetme” talebi kabul edilmiş, ibare kayıttan çizilmiştir. Mahkeme, davalının tutumuna göre bu ibareyi yeniden değerlendirme hakkını saklı tutar.</p>
+    <div class="actions"><button class="btn" data-next>Duruşmaya geç</button></div>
+  </section>
+
+  <!-- 2. Ön inceleme -->
+  <section class="scene" data-step="1" hidden>
+    <p class="eyebrow">Ön inceleme</p>
+    <h2>Duruşmaya geçmeden önce birkaç usul sorusu</h2>
+    <p class="small">Cevaplarınız karara aynen geçirilecektir.</p>
+    <fieldset>
+      <legend>Kahve tercihiniz?</legend>
+      <div class="chips" data-q="kahve">
+        <button class="chip" data-v="Türk kahvesi">Türk kahvesi</button>
+        <button class="chip" data-v="filtre kahve">Filtre</button>
+        <button class="chip" data-v="latte">Latte</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Brownie nasıl olsun?</legend>
+      <div class="chips" data-q="brownie">
+        <button class="chip" data-v="cevizli">Cevizli</button>
+        <button class="chip" data-v="sade">Sade</button>
+        <button class="chip" data-v="bol çikolatalı">Bol çikolatalı</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Duruşma ne zaman olsun?</legend>
+      <div class="chips" data-q="zaman">
+        <button class="chip" data-v="bir hafta içi akşamı">Hafta içi akşam</button>
+        <button class="chip" data-v="bir Cumartesi günü">Cumartesi</button>
+        <button class="chip" data-v="bir Pazar günü">Pazar</button>
+      </div>
+    </fieldset>
+    <p class="tutanak" id="usulNot"></p>
+    <div class="actions"><button class="btn" data-next id="usulBtn">Delillere geç</button></div>
+  </section>
+
+  <!-- 3. Deliller -->
+  <section class="scene" data-step="2" hidden>
+    <p class="eyebrow">Delillerin sunumu</p>
+    <h2>Davacı lehine deliller</h2>
+    <div id="delilListe"></div>
+    <div class="actions row">
+      <button class="btn" id="delilBtn">Sıradaki delil</button>
+      <button class="btn" data-next id="delilIleri" hidden>Esasa geç</button>
+    </div>
+  </section>
+
+  <!-- 4. Asıl soru -->
+  <section class="scene" data-step="3" hidden>
+    <p class="eyebrow">Esas hakkında</p>
+    <h2>Davalı, davacıyla bir kahve ve bir dilim brownie paylaşmayı kabul ediyor mu?</h2>
+    <div class="soru-alani" id="soruAlani">
+      <button class="btn" id="evet">Evet</button>
+      <button class="btn" id="hayir">Hayır</button>
+    </div>
+    <p class="tutanak" id="tutanak" aria-live="polite"></p>
+    <div id="kutular"></div>
+  </section>
+
+  <!-- 5. Keşif -->
+  <section class="scene" data-step="4" hidden>
+    <p class="eyebrow">Yetki ve mahal tayini</p>
+    <h2>Mahallinde keşif</h2>
+    <p>Mahkeme, davalının daha önce verdiği şu beyanı hatırlatır: <b>“Brownie'yi sen yap getir, kahve benden.”</b> Bu beyan ikrardır ve geçerliliğini korur.</p>
+    <p>Ancak brownie fırından sıcak çıkar. Nakli, delilin bütünlüğünü bozar ve soğumasına yol açar. Davacı bu nedenle keşfin, delilin bulunduğu yerde, yani kendi mutfağında yapılmasını ve kahvenin davalı tarafından orada hazırlanmasını talep etmektedir.</p>
+    <p class="small">Karar davalıya aittir. Üç seçeneğin üçü de geçerlidir.</p>
+    <div class="secenek">
+      <button class="onerilen" data-mahal="davaci"><b>Talebi kabul ediyorum</b><span>Kahveyi senin mutfağında ben yaparım.</span></button>
+      <button data-mahal="davali"><b>İtirazım var</b><span>Brownie'yi soğutmadan bana getirirsin.</span></button>
+      <button data-mahal="kafe"><b>Tarafsız bölge</b><span>İlk duruşma bir kafede olsun.</span></button>
+    </div>
+  </section>
+
+  <!-- 6. Hüküm -->
+  <section class="scene" data-step="5" hidden>
+    <div class="hukum-bas">
+      <button class="tokmak" id="tokmak" aria-label="Tokmak">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect x="8" y="50" width="34" height="7" rx="2" fill="#6B4226"/>
+          <g transform="rotate(-35 32 30)">
+            <rect x="30" y="20" width="30" height="5" rx="2" fill="#8A5A3A"/>
+            <rect x="14" y="12" width="18" height="21" rx="4" fill="#6B4226"/>
+            <rect x="12" y="15" width="22" height="3" fill="#B3261E"/>
+            <rect x="12" y="27" width="22" height="3" fill="#B3261E"/>
+          </g>
+        </svg>
+      </button>
+      <div>
+        <p class="eyebrow" style="margin:0">Hüküm</p>
+        <h2 style="margin:0">Gereği düşünüldü</h2>
+      </div>
+    </div>
+    <div class="karar" id="karar"></div>
+    <p class="samimi">Duruşmaya katılım zorunlu değildir. Davacı her hâlükârda brownie yapacaktır; davalı gelmezse brownie, davacı tarafından tek başına ve büyük bir huzurla yenecektir.</p>
+    <p class="imza">Karara itiraz süresi: brownie soğuyana kadar · Davacı, Yunuscan</p>
+    <p class="small" style="margin-bottom:8px">Kararın davacıya tebliği için:</p>
+    <div class="row">
+      <a class="btn" id="waBtn" href="#" target="_blank" rel="noopener">WhatsApp'tan tebliğ et</a>
+      <button class="btn ghost" id="kopyala">Metni kopyala</button>
+    </div>
+    <div class="mesaj" id="mesaj"></div>
+  </section>
+
+  <p class="kvkk">KVKK aydınlatma notu: Bu sitede yalnızca bir adet kahve tercihi ve bir adet brownie tercihi işlenmektedir. Veriler başka hiçbir amaçla kullanılmaz.</p>
+</main>
+
+<script>
+(() => {
+  // Davacının WhatsApp numarası (ülke koduyla, boşluksuz, ör. "905551234567").
+  // Boş kalırsa WhatsApp kişi seçme ekranı açılır.
+  const TELEFON = "";
+
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const secim = { kahve: "Türk kahvesi", brownie: "bol çikolatalı", zaman: "bir Cumartesi günü" };
+  let adim = 0;
+
+  /* ---- Ses: tokmak ---- */
+  let ac;
+  function tak(n = 2) {
+    try {
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      for (let i = 0; i < n; i++) {
+        const t = ac.currentTime + i * 0.22;
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = "triangle"; o.frequency.setValueAtTime(180, t); o.frequency.exponentialRampToValueAtTime(60, t + 0.12);
+        g.gain.setValueAtTime(0.5, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
+        o.connect(g).connect(ac.destination); o.start(t); o.stop(t + 0.16);
+      }
+    } catch (e) {}
+  }
+
+  /* ---- Sahne geçişi ---- */
+  function goster(i) {
+    adim = i;
+    $$("[data-step]").forEach(s => s.hidden = Number(s.dataset.step) !== i);
+    $$(".steps i").forEach((el, k) => el.classList.toggle("on", k <= i));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (i !== 3) hayirTopla();
+  }
+  $$("[data-next]").forEach(b => b.addEventListener("click", () => goster(adim + 1)));
+
+  /* ---- Zarf ---- */
+  $("#zarfBtn").addEventListener("click", () => {
+    $("#zarfBtn").classList.add("open");
+    tak(1);
+    setTimeout(() => { $("#zarf").hidden = true; $("#evrak").hidden = false; goster(0); }, 650);
+  });
+
+  /* ---- Ön inceleme ---- */
+  $$(".chips").forEach(grup => {
+    grup.addEventListener("click", e => {
+      const b = e.target.closest(".chip"); if (!b) return;
+      grup.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c === b)));
+      secim[grup.dataset.q] = b.dataset.v;
+      if (grup.dataset.q === "brownie" && b.dataset.v === "sade") $("#usulNot").textContent = "Zapta geçirildi: Sade brownie tercihi mahkemece cesur bulunmuştur.";
+      else if (grup.dataset.q === "kahve" && b.dataset.v === "Türk kahvesi") $("#usulNot").textContent = "Zapta geçirildi: Fal bakılması ayrı bir dava konusudur.";
+      else $("#usulNot").textContent = "Zapta geçirildi.";
+    });
+  });
+
+  /* ---- Deliller ---- */
+  const deliller = [
+    { t: "Davacı, iyi kahve yapılan yerleri bilmektedir.", s: "Bu yerlerden biri kendi mutfağıdır." },
+    { t: "Davacının sohbeti fena sayılmaz.", s: "Tanık beyanı alınamamıştır." },
+    { t: "Davacı, sırf bu soru için bir web sitesi yazmıştır.", s: "Şu an okuduğunuz sayfa delilin kendisidir." },
+    { ikrar: true }
+  ];
+  let d = 0;
+  $("#delilBtn").addEventListener("click", () => {
+    const x = deliller[d]; const el = document.createElement("div");
+    if (x.ikrar) {
+      el.className = "delil ikrar";
+      el.innerHTML = `<div class="no">Delil ${d + 1} · Davalının ikrarı</div>
+        <blockquote>“Brownie'yi sen yap getir, kahve benden.”</blockquote>
+        <p class="small" style="margin:0">Mahkeme bu beyanı ikrar olarak kabul etmiştir. İkrardan dönülemez.</p>`;
+    } else {
+      el.className = "delil";
+      el.innerHTML = `<div class="no">Delil ${d + 1}</div><p style="margin:0 0 2px">${x.t}</p><p class="small" style="margin:0">${x.s}</p>`;
+    }
+    $("#delilListe").appendChild(el);
+    d++;
+    if (d >= deliller.length) { $("#delilBtn").hidden = true; $("#delilIleri").hidden = false; }
+  });
+
+  /* ---- Asıl soru: kaçan Hayır ---- */
+  const evet = $("#evet"), hayir = $("#hayir");
+  const hayirYazilari = ["Emin misiniz?", "İtiraz reddedildi", "Bu talep dayanaktan yoksundur", "Usulden ret",
+    "Zamanaşımına uğradı", "Süre kaçırıldı", "Temyiz yolu kapalı", "Karar kesinleşmiştir", "Olmaz ki ama", "Son kez soruyorum"];
+  const tutanakYazilari = ["Tutanak: Davalı “Hayır” seçeneğine yaklaşmıştır.", "Tutanak: Davalı ısrar etmektedir.",
+    "Tutanak: “Evet” seçeneği giderek güçlenmektedir.", "Tutanak: Mahkeme sabırlıdır."];
+  let deneme = 0, ucuyor = false, bitti = false;
+
+  function cakisir(x, y, w, h, r) {
+    const m = 14;
+    return !(x + w + m < r.left || x - m > r.right || y + h + m < r.top || y - m > r.bottom);
+  }
+  function kac(e) {
+    if (bitti) return;
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    deneme++;
+    if (!ucuyor) {
+      const r = hayir.getBoundingClientRect();
+      document.body.appendChild(hayir);
+      hayir.classList.add("flying");
+      hayir.style.left = r.left + "px"; hayir.style.top = r.top + "px";
+      ucuyor = true;
+    }
+    hayir.textContent = hayirYazilari[(deneme - 1) % hayirYazilari.length];
+    evet.style.transform = `scale(${Math.min(1 + deneme * 0.14, 2.3)})`;
+    requestAnimationFrame(() => {
+      const w = hayir.offsetWidth, h = hayir.offsetHeight, p = 16;
+      const er = evet.getBoundingClientRect();
+      let x, y, i = 0;
+      do {
+        x = p + Math.random() * Math.max(0, innerWidth - w - 2 * p);
+        y = p + Math.random() * Math.max(0, innerHeight - h - 2 * p);
+      } while (++i < 40 && cakisir(x, y, w, h, er));
+      hayir.style.left = x + "px"; hayir.style.top = y + "px";
+    });
+    $("#tutanak").textContent = tutanakYazilari[Math.min(Math.floor((deneme - 1) / 2), tutanakYazilari.length - 1)];
+
+    if (deneme === 4) {
+      const nz = $("#nz"); const yeni = document.createElement("span");
+      yeni.id = "nz"; yeni.className = "nazli-on"; yeni.textContent = "(Nazlı)"; nz.replaceWith(yeni);
+      kutu(`<p><b>Ara karar.</b> Davalının nazlanmaya başladığı tespit edilmiştir. Kayıttan çizilen “Nazlı” ibaresi, künyede görüleceği üzere yeniden işlenmiştir.</p>`);
+    }
+    if (deneme === 6) {
+      kutu(`<p><b>Mahkemenin sorusu.</b> Avukatınızla görüşmek ister misiniz?</p><p class="small" style="margin:0">Pardon, siz zaten avukatsınız. Soru geri alınmıştır.</p>`);
+    }
+    if (deneme === 8) {
+      kutu(`<p><b>Uzlaşma teklifi.</b> Davacı, brownie'yi bol çikolatalı yapmayı taahhüt etmektedir.</p>
+        <button class="btn" id="uzlas">Uzlaşmayı kabul ediyorum</button>`);
+      $("#uzlas").addEventListener("click", () => { secim.brownie = "bol çikolatalı"; kabul(); });
+    }
+    if (deneme >= 11) {
+      hayir.remove(); ucuyor = false;
+      $("#tutanak").textContent = "Tutanak: “Hayır” seçeneği delil yetersizliğinden düşmüştür.";
+    }
+  }
+  hayir.addEventListener("mouseenter", kac);
+  hayir.addEventListener("pointerdown", kac);
+  hayir.addEventListener("click", kac);
+  hayir.addEventListener("focus", () => { if (deneme > 0) kac(); });
+
+  function kutu(html) {
+    const k = document.createElement("div"); k.className = "kutu"; k.innerHTML = html;
+    $("#kutular").appendChild(k);
+  }
+  function hayirTopla() { if (ucuyor) { hayir.remove(); ucuyor = false; } }
+  function kabul() {
+    bitti = true; hayirTopla(); tak(1);
+    $("#tutanak").textContent = deneme > 0
+      ? `Tutanak: Davalı ${deneme} kez direndikten sonra kabul etmiştir.`
+      : "Tutanak: Davalı ilk soruda kabul etmiştir. Mahkeme etkilenmiştir.";
+    setTimeout(() => goster(4), 900);
+  }
+  evet.addEventListener("click", kabul);
+
+  /* ---- Keşif ve hüküm ---- */
+  let mahal = "davaci";
+  $$("[data-mahal]").forEach(b => b.addEventListener("click", () => { mahal = b.dataset.mahal; hukum(); }));
+
+  function hukum() {
+    const { kahve, brownie, zaman } = secim;
+    let metin, ozet, damga;
+    if (mahal === "davaci") {
+      metin = `Davalının ikrarı ve delilin taşınamaz niteliği dikkate alınarak; <b>${zaman}</b> davacının mutfağında keşif yapılmasına, <b>${brownie}</b> brownie'nin davacı tarafından fırından sıcak servis edilmesine, <b>${kahve}</b> hazırlanmasının davalıya ait olmasına, kahvenin brownie'den güzel olması hâlinde bu hususun zapta geçirilmesine, yargılama giderlerinin davacı üzerinde bırakılmasına oybirliğiyle karar verilmiştir.`;
+      ozet = `Keşif senin mutfağında, ${zaman}. Brownie (${brownie}) senden, ${kahve} benden.`;
+      damga = "KABUL";
+    } else if (mahal === "davali") {
+      metin = `Davalının yetki itirazının kabulüne; <b>${zaman}</b> keşfin davalı adresinde yapılmasına, <b>${brownie}</b> brownie'nin davacı tarafından soğutulmadan getirilmesine, davacının eli boş gelmemesine, <b>${kahve}</b> ikramının davalıya ait olmasına, yargılama giderlerinin davacı üzerinde bırakılmasına oybirliğiyle karar verilmiştir.`;
+      ozet = `Yetki itirazım kabul edildi: keşif bende, ${zaman}. Brownie'yi (${brownie}) sıcak getir, ${kahve} benden.`;
+      damga = "İTİRAZ KABUL";
+    } else {
+      metin = `İlk duruşmanın <b>${zaman}</b> tarafsız bölgede, bir kafede yapılmasına; <b>${kahve}</b> içilmesine, kafeye brownie götürülemeyeceğinden <b>${brownie}</b> brownie keşfinin ileri bir tarihe ertelenmesine, erteleme süresinin makul tutulmasına, hesabın davacı tarafından ödenmesine oybirliğiyle karar verilmiştir.`;
+      ozet = `İlk duruşma kafede, ${zaman}. ${kahve} içeriz, brownie keşfi (${brownie}) sonraya kalsın.`;
+      damga = "ERTELENDİ";
+    }
+    $("#karar").innerHTML = metin + `<span class="damga">${damga}</span>`;
+    const mesaj = `Tatlı Hukuk Mahkemesi, Brownie Davası (Esas No 2026/1)\nKarar: ${ozet}\n\nDavalı: Fatma${deneme >= 4 ? " (Nazlı)" : ""}`;
+    $("#mesaj").textContent = mesaj;
+    $("#waBtn").href = `https://wa.me/${TELEFON}?text=${encodeURIComponent(mesaj)}`;
+    goster(5);
+    setTimeout(() => { $("#tokmak").classList.remove("vur"); void $("#tokmak").offsetWidth; $("#tokmak").classList.add("vur"); tak(3); konfeti(); }, 350);
+  }
+
+  $("#kopyala").addEventListener("click", async () => {
+    const t = $("#mesaj").textContent;
+    try { await navigator.clipboard.writeText(t); $("#kopyala").textContent = "Kopyalandı"; }
+    catch (e) { const r = document.createRange(); r.selectNodeContents($("#mesaj")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("#kopyala").textContent = "Metin seçildi"; }
+  });
+
+  /* ---- Easter egg: tokmağa 3 kez vur ---- */
+  let vurus = 0, vurusT;
+  $("#tokmak").addEventListener("click", () => {
+    const t = $("#tokmak"); t.classList.remove("vur"); void t.offsetWidth; t.classList.add("vur"); tak(1);
+    vurus++; clearTimeout(vurusT); vurusT = setTimeout(() => vurus = 0, 900);
+    if (vurus >= 3) {
+      vurus = 0; const s = document.createElement("div"); s.id = "sukunet"; s.textContent = "Sükûnet!";
+      document.body.appendChild(s); setTimeout(() => s.remove(), 1300);
+    }
+  });
+
+  /* ---- Konfeti ---- */
+  function konfeti() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const c = $("#confetti"), x = c.getContext("2d");
+    c.width = innerWidth * devicePixelRatio; c.height = innerHeight * devicePixelRatio; x.scale(devicePixelRatio, devicePixelRatio);
+    const renk = ["#B3261E", "#6B4226", "#E7B84A", "#3B2A20", "#FAF8F3"];
+    const P = Array.from({ length: 140 }, () => ({
+      x: innerWidth / 2 + (Math.random() - .5) * 80, y: innerHeight * .35,
+      vx: (Math.random() - .5) * 11, vy: -Math.random() * 11 - 3, r: Math.random() * 6 + 4,
+      a: Math.random() * 6, va: (Math.random() - .5) * .3, c: renk[Math.floor(Math.random() * renk.length)]
+    }));
+    let f = 0;
+    (function kare() {
+      x.clearRect(0, 0, innerWidth, innerHeight);
+      P.forEach(p => { p.vy += .28; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.a += p.va;
+        x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); x.restore(); });
+      if (++f < 200) requestAnimationFrame(kare); else x.clearRect(0, 0, innerWidth, innerHeight);
+    })();
+  }
+})();
+</script>
+
+</body>
+</html>
